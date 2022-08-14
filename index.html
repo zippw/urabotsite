@@ -1,0 +1,254 @@
+<head>
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="mask-icon" href="safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+
+    <title>UraBot.best</title>
+</head>
+
+<body>
+    <script>
+        function ready() {
+            let enebleScroll = function () {
+                document.querySelector('main').style.display = "";
+            }
+            anime({
+                targets: {
+                    start: '#ee7752',
+                    end: '#eb7ca7'
+                },
+                start: '#9faadd',
+                end: '#9eaddd',
+                duration: 2000,
+                easing: 'easeOutExpo',
+                delay: 2800,
+                // loop: true,
+                // direction: 'alternate',
+                update: function (a) {
+                    var value1 = a.animations[0].currentValue;
+                    var value2 = a.animations[1].currentValue;
+                    document.querySelector('.main__header').style.backgroundImage = 'linear-gradient(60deg, ' + value1 + ' 0%, ' + value2 + ' 100%)';
+                }
+            });
+            anime.timeline().add({
+                targets: '.progress',
+                width: '80%',
+                duration: 2800,
+                easing: 'easeInExpo'
+            }).add({
+                targets: '.progress',
+                width: '100%',
+                opacity: [1, 0],
+                duration: 1000,
+                easing: 'easeInCubic'
+            })
+            anime.timeline({ loop: false })
+                .add({
+                    targets: '.ml12 .letter',
+                    translateX: [40, 0],
+                    translateZ: 0,
+                    opacity: [0, 1],
+                    easing: "easeOutExpo",
+                    duration: 700,
+                    delay: (el, i) => 500 + 30 * i
+                }).add({
+                    targets: '.ml12 .letter',
+                    scale: 2,
+                    opacity: 0,
+                    duration: 600,
+                    easing: "easeInExpo",
+                    delay: 500
+                }).add({
+                    targets: '.svgUraBot',
+                    translateY: [0, -60],
+                    opacity: [0, 1],
+                    easing: "easeOutQuint",
+                    duration: 700,
+                    complete: async function () {
+                        await enebleScroll();
+                        await new LocomotiveScroll({
+                            el: document.querySelector('[data-scroll-container]'),
+                            smooth: true
+                        });
+                    }
+                }).add({
+                    targets: '.scrollBtn',
+                    opacity: [0, 1],
+                    duration: 600,
+                    easing: "easeInExpo",
+                    delay: 500,
+                    // complete: function () {
+                    //     window.scrollBy({
+                    //         top: window.innerHeight,
+                    //         behavior: 'smooth'
+                    //     });
+                    // }
+                });
+        }
+
+        document.addEventListener("DOMContentLoaded", ready);
+    </script>
+
+    <div data-scroll-container>
+        <header class="main__header">
+            <div class="area"></div>
+            <div class="container1">
+                <!-- <img src="https://cdn.discordapp.com/avatars/674942800894361611/0dff3f0381ec2d3b7c821c2193e15a50.webp?size=4096"
+                alt=""> -->
+                <div class="text">
+                    <h1 class="ml12"><span class="letters"><span class="letter">H</span><span
+                                class="letter">u</span><span class="letter">g</span><span class="letter">e</span><span
+                                class="letter">.</span> <span class="letter">F</span><span class="letter">a</span><span
+                                class="letter">s</span><span class="letter">t</span><span class="letter">.</span> <span
+                                class="letter">I</span><span class="letter">n</span><span class="letter">c</span><span
+                                class="letter">r</span><span class="letter">e</span><span class="letter">d</span><span
+                                class="letter">i</span><span class="letter">b</span><span class="letter">l</span><span
+                                class="letter">e</span><span class="letter">.</span></span>
+                        <svg class="svgUraBot" viewbox="0 0 100 20">
+                            <defs>
+                                <linearGradient id="gradient" x1="0" x2="0" y1="0" y2="1">
+                                    <stop offset="5%" stop-color="#00000090" />
+                                    <stop offset="95%" stop-color="#00000090" />
+                                    <!-- <stop offset="5%" stop-color="#899fcd" />
+                                <stop offset="95%" stop-color="#8a7c9d" /> -->
+                                </linearGradient>
+                                <pattern id="wave" x="0" y="0" width="120" height="20" patternUnits="userSpaceOnUse">
+                                    <path id="wavePath"
+                                        d="M-40 9 Q-30 7 -20 9 T0 9 T20 9 T40 9 T60 9 T80 9 T100 9 T120 9 V20 H-40z"
+                                        mask="url(#mask)" fill="url(#gradient)">
+                                        <animateTransform attributeName="transform" begin="0s" dur="1.5s"
+                                            type="translate" from="0,0" to="40,0" repeatCount="indefinite" />
+                                    </path>
+                                </pattern>
+                            </defs>
+                            <text text-anchor="middle" x="50" y="15" font-size="17" fill="url(#wave)"
+                                fill-opacity="0.9">UraBot</text>
+                            <text text-anchor="middle" x="50" y="15" font-size="17" fill="url(#gradient)"
+                                fill-opacity="0.3">UraBot</text>
+                        </svg>
+                        
+                    </h1>
+                    <!-- <h2>Лучший бот для сервера G@y $ek$</h2> -->
+                </div>
+            </div>
+            <div class="scrollBtn"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                    version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 330 330"
+                    style="enable-background:new 0 0 330 330;" xml:space="preserve">
+                    <path id="XMLID_225_"
+                        d="M325.607,79.393c-5.857-5.857-15.355-5.858-21.213,0.001l-139.39,139.393L25.607,79.393  c-5.857-5.857-15.355-5.858-21.213,0.001c-5.858,5.858-5.858,15.355,0,21.213l150.004,150c2.813,2.813,6.628,4.393,10.606,4.393  s7.794-1.581,10.606-4.394l149.996-150C331.465,94.749,331.465,85.251,325.607,79.393z" />
+                    <g>
+                    </g>
+                    <g>
+                    </g>
+                    <g>
+                    </g>
+                    <g>
+                    </g>
+                    <g>
+                    </g>
+                    <g>
+                    </g>
+                    <g>
+                    </g>
+                    <g>
+                    </g>
+                    <g>
+                    </g>
+                    <g>
+                    </g>
+                    <g>
+                    </g>
+                    <g>
+                    </g>
+                    <g>
+                    </g>
+                    <g>
+                    </g>
+                    <g>
+                    </g>
+                </svg></div>
+            <div class="progress">
+                <span class="progress-bar" style="width: 75%"></span>
+            </div>
+        </header>
+        <main id="disableScroll" class="main__main">
+            <div class="grid">
+                <div class="row container imageLeft" data-scroll class><img class="image-1 featureImage"
+                        alt="UraBot leaderboard command output"
+                        src="lb2.png">
+                    <div class="description" data-scroll class data-scroll-speed="0.8" data-scroll-position="top">
+                        <h2 class="h2">В этом боте Вас ждёт своя экономика!
+                        </h2>
+                        <div class="textMedium subtitle">Общайся в главном чате до потери
+                            сознания, ведь наш админ любит, когда сервер активит и потом вставляет вручную все <img
+                                style="vertical-align:middle;margin-bottom: 7px"
+                                src="https://cdn.discordapp.com/emojis/817757030890078230.gif?size=20" alt="">
+                            актив-поинты
+                            в JSON базу данных (или не вставляет)</div>
+                    </div>
+                </div>
+            </div>
+            <div class="sep"></div>
+            <div class="grid">
+                <div class="row container imageRight visible" data-scroll class><img class=" image-1 featureImage"
+                        alt="Стилизованное изображение с друзьями, болтающими в нескольких голосовых каналах."
+                        src="card.png">
+                    <div class=" description" data-scroll class data-scroll-speed="0.5" data-scroll-position="top">
+                        <h2 class="h2">Очень крутой премиум!</h2>
+                        <div class="textMedium subtitle">Вы можете заказать бесплатно себе любую карточку, но только в
+                            формате JSON, потому что разраб даун :3</div>
+                    </div>
+                </div>
+            </div>
+            <div class="sep"></div>
+            <div class="grid">
+                <div class="row container imageLeft visible" data-scroll class><img class=" image-1 featureImage"
+                        alt="UraBot leaderboard command output"
+                        src="clown.png">
+                    <div class=" description" data-scroll class data-scroll-speed="0.3" data-scroll-position="top">
+                        <h2 class="h2">Этот бот крутой!
+                        </h2>
+                        <div class="textMedium subtitle">Потому что в нём много команд, большинство из которых будут
+                            использовать ваш мобильный интернет, загружая canvas картинки, а не обычные embed! 🎉</div>
+                    </div>
+                </div>
+            </div>
+            <div class="sep"></div>
+            <div class="grid greyBackground-2ATEHg">
+                <div class="row container-3fzHO2 cta-3aOZq-">
+                    <div aria-hidden="true" class="sparklesContainer"><img class="sparkles"
+                            src="https://discord.com/assets/a188414ce83f2454b9d71a47c3d95909.svg" alt=""></div>
+                    <h4 class="h4 title">Хочешь конфетку?</h4><a class="button"
+                        href="https://discord.com/invite/jnwaxtWxQc">
+                        Наш DISCORD</a>
+                </div>
+            </div>
+        </main>
+        <!-- <header class="main__header news">
+        <div class="news__container">
+            <img src="https://cdn.discordapp.com/avatars/674942800894361611/0dff3f0381ec2d3b7c821c2193e15a50.webp?size=256" alt="">
+        </div>
+    </header> -->
+        <script src="script.js"></script>
+        <script>
+            VanillaTilt.init(document.querySelectorAll(".image-1"), {
+                reverse: true,
+                max: 5,
+                // speed: 200,
+                glare: true,
+                "max-glare": 1,
+                gyroscope: false,
+            });
+
+            document.querySelector('main').style.display = "none"
+        </script>
+
+    </div>
+</body>
